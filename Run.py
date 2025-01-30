@@ -7,10 +7,7 @@ font1 = ('Angsana New',25)
 font2 = ('Angsana New',20)
 font3 = ('Angsana New',15)
 font4 = ('Angsana New',10)
-wpm = ['wpm']
-for i in range(1,4):
-    for x in range(10):
-        wpm.append(f'0.{i}{x}')
+wpm = ['wpm',0,0.01,0.1]
 
 def show_message():
     messagebox.showinfo("Message", "Hello, this is your GUI app!")
@@ -48,19 +45,8 @@ def main():
         # ฟังก์ชันเช็คคีย์    
         token_check = key.get()
         username = Username.get()
-        import requests
-        url = "https://ez-api-olive.vercel.app/autowrite"
-        response = requests.get(url)
-        print(response.json())
-        try:
-            token_check = response.json()[str(token_check)]
-            if response.status_code == 200 and str(username) == token_check[1]:
-                create_tap(token_check[0])
-            else:
-                print("การร้องขอ API ไม่สำเร็จ")
-                warning_text.config(text="@contact Facebook : พัสพล พลังชีวิต")
-        except:
-            warning_text.config(text="@contact Facebook : พัสพล พลังชีวิต")
+        create_tap(True)
+        
 # ฟังก์ชันเช็คคีย์
     key = StringVar()
     set_key = Entry(frame0, textvariable=key, width=30)

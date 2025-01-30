@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 import bs4
 
-url = 'https://www.typingstudy.com/th-thai_kedmanee-3/lesson/1'
+url = 'https://www.speedtypingonline.com/typing-test'
 drive = webdriver.Edge()
 drive.get(url)
 
